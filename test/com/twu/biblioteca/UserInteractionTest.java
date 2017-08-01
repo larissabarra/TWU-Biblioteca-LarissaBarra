@@ -3,8 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -60,10 +58,21 @@ public class UserInteractionTest {
 
     @Test
     public void chooseMenuOption() throws Exception {
-        when(display.waitForUserInput())
+        when(display.waitForUserIntInput())
                 .thenReturn(1);
         userInteraction.execute();
-        verify(display).waitForUserInput();
+        verify(display).waitForUserIntInput();
         verify(bookList).printBookList();
+    }
+
+
+
+    @Test
+    public void chooseInvalidMenuOption() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(2);
+        userInteraction.execute();
+        verify(display).waitForUserIntInput();
+        verify(display).print("Select a valid option!");
     }
 }

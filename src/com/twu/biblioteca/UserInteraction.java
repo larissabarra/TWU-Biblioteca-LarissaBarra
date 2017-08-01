@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 public class UserInteraction {
     private final WelcomeMessage welcomeMessage;
     private final BookList bookList;
@@ -18,9 +16,11 @@ public class UserInteraction {
     public void execute() {
         display.print(welcomeMessage.returnWelcomeMessage());
         display.print(menu.showMenu());
-        int choice = display.waitForUserInput();
+        int choice = display.waitForUserIntInput();
         switch(choice) {
             case 1: display.print(bookList.printBookList());
+                break;
+            default: display.print("Select a valid option!");
                 break;
         }
     }

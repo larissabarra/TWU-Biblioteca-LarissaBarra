@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Display {
@@ -9,8 +10,12 @@ public class Display {
         System.out.println(message);
     }
 
-    public int waitForUserInput() {
+    public int waitForUserIntInput() {
         System.out.print("Choose your option: ");
-        return sc.nextInt();
+        try {
+            return sc.nextInt();
+        } catch (InputMismatchException ex) {
+            return 0;
+        }
     }
 }
