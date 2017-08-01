@@ -15,13 +15,18 @@ public class UserInteraction {
 
     public void execute() {
         display.print(welcomeMessage.returnWelcomeMessage());
-        display.print(menu.showMenu());
-        int choice = display.waitForUserIntInput();
-        switch(choice) {
-            case 1: display.print(bookList.printBookList());
-                break;
-            default: display.print("Select a valid option!");
-                break;
+        int choice = 0;
+        while (choice != 9) {
+            display.print(menu.showMenu());
+            choice = display.waitForUserIntInput();
+            switch (choice) {
+                case 1: display.print(bookList.printBookList());
+                    break;
+                case 9: display.print("Bye!");
+                    break;
+                default: display.print("Select a valid option!");
+                    break;
+            }
         }
     }
 }

@@ -4,9 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class UserInteractionTest {
 
@@ -65,8 +63,6 @@ public class UserInteractionTest {
         verify(bookList).printBookList();
     }
 
-
-
     @Test
     public void chooseInvalidMenuOption() throws Exception {
         when(display.waitForUserIntInput())
@@ -74,5 +70,14 @@ public class UserInteractionTest {
         userInteraction.execute();
         verify(display).waitForUserIntInput();
         verify(display).print("Select a valid option!");
+    }
+
+    @Test
+    public void showMenuWhileUserDoesntQuit() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(2,9);
+        userInteraction.execute();
+        verify(display, times(2)).waitForUserIntInput();
+        verify(menu, times(2)).showMenu();
     }
 }
