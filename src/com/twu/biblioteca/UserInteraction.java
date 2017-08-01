@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class UserInteraction {
     private final WelcomeMessage welcomeMessage;
     private final BookList bookList;
@@ -16,13 +18,10 @@ public class UserInteraction {
     public void execute() {
         display.print(welcomeMessage.returnWelcomeMessage());
         display.print(menu.showMenu());
-    }
-
-    public String printBookList() {
-        String list = "";
-        for (Object book : bookList.getBookList()) {
-            list += book.toString() + "\n";
+        int choice = display.waitForUserInput();
+        switch(choice) {
+            case 1: display.print(bookList.printBookList());
+                break;
         }
-        return list;
     }
 }

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,15 +37,15 @@ public class UserInteractionTest {
         verify(display).print("Ei");
     }
 
-    //TODO: descobrir pq isso n'ao funciona
-    /*@Test
+    /*
+    @Test
     public void printBookList() throws Exception {
-        when(userInteraction.printBookList())
-                .thenReturn("book1 - author - 2017");
+        when(bookList.printBookList())
+                .thenReturn("title - author - 2017");
 
         userInteraction.execute();
-        verify(userInteraction).printBookList();
-        verify(display).print("book1 - author - 2017");
+        verify(bookList).printBookList();
+        verify(display).print("title - author - 2017");
     }*/
 
     @Test
@@ -55,5 +56,14 @@ public class UserInteractionTest {
         userInteraction.execute();
         verify(menu).showMenu();
         verify(display).print("1 - List books");
+    }
+
+    @Test
+    public void chooseMenuOption() throws Exception {
+        when(display.waitForUserInput())
+                .thenReturn(1);
+        userInteraction.execute();
+        verify(display).waitForUserInput();
+        verify(bookList).printBookList();
     }
 }
