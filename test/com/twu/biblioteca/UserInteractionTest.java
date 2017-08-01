@@ -15,13 +15,15 @@ public class UserInteractionTest {
     private BookList bookList;
     private UserInteraction userInteraction;
     private Display display;
+    private Menu menu;
 
     @Before
     public void setUp() throws Exception {
         welcomeMessage = mock(WelcomeMessage.class);
         bookList = mock(BookList.class);
         display = mock(Display.class);
-        userInteraction = new UserInteraction(welcomeMessage, bookList, display);
+        menu = mock(Menu.class);
+        userInteraction = new UserInteraction(welcomeMessage, bookList, display, menu);
     }
 
     @Test
@@ -44,4 +46,14 @@ public class UserInteractionTest {
         verify(userInteraction).printBookList();
         verify(display).print("book1 - author - 2017");
     }*/
+
+    @Test
+    public void showMenu() throws Exception {
+        when(menu.showMenu())
+                .thenReturn("1 - List books");
+
+        userInteraction.execute();
+        verify(menu).showMenu();
+        verify(display).print("1 - List books");
+    }
 }

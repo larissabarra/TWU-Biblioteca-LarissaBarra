@@ -6,7 +6,8 @@ public class BibliotecaApp {
         WelcomeMessage message = new WelcomeMessage();
         BookList list = new BookList();
         Display display = new Display();
+        Menu menu = new Menu();
 
-        new UserInteraction(message, list, display).execute();
+        new UserInteraction(message, list, display, menu).execute();
     }
 }
