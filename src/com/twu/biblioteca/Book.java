@@ -18,4 +18,9 @@ public class Book {
     public int getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return title + " - " + author + " - " + year;
+    }
 }

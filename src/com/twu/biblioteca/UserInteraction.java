@@ -13,6 +13,14 @@ public class UserInteraction {
 
     public void execute() {
         display.print(welcomeMessage.returnWelcomeMessage());
-        display.print(bookList.getBookList().toString());
+        display.print(printBookList());
+    }
+
+    public String printBookList() {
+        String list = "";
+        for (Object book : bookList.getBookList()) {
+            list += book.toString() + "\n";
+        }
+        return list;
     }
 }
