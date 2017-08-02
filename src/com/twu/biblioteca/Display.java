@@ -18,4 +18,13 @@ public class Display {
             return 0;
         }
     }
+
+    public String waitForUserStringInput() {
+        System.out.print("Choose your option: ");
+        try {
+            return sc.nextLine();
+        } catch (InputMismatchException ex) {
+            return "";
+        }
+    }
 }

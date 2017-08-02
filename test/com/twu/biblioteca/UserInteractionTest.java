@@ -26,6 +26,8 @@ public class UserInteractionTest {
     public void printWelcomeMessage() throws Exception {
         when(welcomeMessage.returnWelcomeMessage())
                 .thenReturn("Ei");
+        when(display.waitForUserIntInput())
+                .thenReturn(9);
 
         userInteraction.execute();
         verify(welcomeMessage).returnWelcomeMessage();
@@ -36,6 +38,8 @@ public class UserInteractionTest {
     public void showMenu() throws Exception {
         when(menu.showMenu())
                 .thenReturn("1 - List books");
+        when(display.waitForUserIntInput())
+                .thenReturn(9);
 
         userInteraction.execute();
         verify(menu).showMenu();
@@ -45,16 +49,16 @@ public class UserInteractionTest {
     @Test
     public void chooseMenuOption() throws Exception {
         when(display.waitForUserIntInput())
-                .thenReturn(1);
+                .thenReturn(1, 9);
         userInteraction.execute();
-        verify(display).waitForUserIntInput();
-        verify(bookList).printBookList();
+        verify(display, times(2)).waitForUserIntInput();
+        verify(bookList).printAvailableBooks();
     }
 
     @Test
     public void chooseInvalidMenuOption() throws Exception {
         when(display.waitForUserIntInput())
-                .thenReturn(2, 9);
+                .thenReturn(8, 9);
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput();
         verify(display).print("Select a valid option!");
@@ -63,9 +67,26 @@ public class UserInteractionTest {
     @Test
     public void showMenuWhileUserDoesntQuit() throws Exception {
         when(display.waitForUserIntInput())
-                .thenReturn(2,9);
+                .thenReturn(8,9);
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput();
         verify(menu, times(2)).showMenu();
+    }
+
+    @Test
+    public void chooseCheckOutMenuOption() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(2, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("livro");
+
+        userInteraction.execute();
+        verify(display).waitForUserStringInput();
+        verify(display).print("livro");
+    }
+
+    @Test
+    public void showMessageForSuccessfulCheckout() throws Exception {
+
     }
 }

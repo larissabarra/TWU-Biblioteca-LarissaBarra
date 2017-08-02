@@ -20,7 +20,10 @@ public class UserInteraction {
             display.print(menu.showMenu());
             choice = display.waitForUserIntInput();
             switch (choice) {
-                case 1: display.print(bookList.printBookList());
+                case 1: display.print(bookList.printAvailableBooks());
+                    break;
+                case 2: String bookTitle = display.waitForUserStringInput();
+                    display.print(bookTitle);
                     break;
                 case 9: display.print("Bye!");
                     break;
