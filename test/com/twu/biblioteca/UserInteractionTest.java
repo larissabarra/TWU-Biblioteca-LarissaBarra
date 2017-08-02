@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class UserInteractionTest {
@@ -32,17 +31,6 @@ public class UserInteractionTest {
         verify(welcomeMessage).returnWelcomeMessage();
         verify(display).print("Ei");
     }
-
-    /*
-    @Test
-    public void printBookList() throws Exception {
-        when(bookList.printBookList())
-                .thenReturn("title - author - 2017");
-
-        userInteraction.execute();
-        verify(bookList).printBookList();
-        verify(display).print("title - author - 2017");
-    }*/
 
     @Test
     public void showMenu() throws Exception {
