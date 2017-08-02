@@ -78,11 +78,13 @@ public class UserInteractionTest {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
         when(display.waitForUserStringInput())
-                .thenReturn("livro");
+                .thenReturn("xyz");
+        when(bookList.checkoutByTitle("xyz"))
+                .thenReturn(true);
 
         userInteraction.execute();
         verify(display).waitForUserStringInput();
-        verify(display).print("livro");
+        verify(bookList).checkoutByTitle("xyz");
     }
 
     @Test

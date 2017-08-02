@@ -32,4 +32,8 @@ public class BookList {
         }
         return list;
     }
+
+    public boolean checkoutByTitle(String xyz) {
+        return true;
+    }
 }

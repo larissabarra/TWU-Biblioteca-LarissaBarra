@@ -20,11 +20,13 @@ public class Display {
     }
 
     public String waitForUserStringInput() {
-        System.out.print("Choose your option: ");
+        System.out.print("Enter the book title: ");
         try {
-            return sc.nextLine();
+            sc.nextLine();
+            String retorno = sc.nextLine();
+            return retorno;
         } catch (InputMismatchException ex) {
-            return "";
+            return "-";
         }
     }
 }

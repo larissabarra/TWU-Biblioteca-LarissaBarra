@@ -23,7 +23,7 @@ public class UserInteraction {
                 case 1: display.print(bookList.printAvailableBooks());
                     break;
                 case 2: String bookTitle = display.waitForUserStringInput();
-                    display.print(bookTitle);
+                    bookList.checkoutByTitle(bookTitle);
                     break;
                 case 9: display.print("Bye!");
                     break;

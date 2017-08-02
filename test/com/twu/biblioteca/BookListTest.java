@@ -51,4 +51,5 @@ public class BookListTest {
         String printedList = list.printAvailableBooks();
         assertEquals("Book 2 - author 2 - 1994\n", printedList);
     }
+
 }
