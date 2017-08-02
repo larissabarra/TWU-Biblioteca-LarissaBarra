@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.domain;
 
 public class Menu {
     public String showMenu() {

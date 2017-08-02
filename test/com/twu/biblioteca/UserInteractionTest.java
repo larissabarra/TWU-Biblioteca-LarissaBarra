@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.domain.BookList;
+import com.twu.biblioteca.domain.Menu;
+import com.twu.biblioteca.domain.WelcomeMessage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,14 +13,14 @@ public class UserInteractionTest {
     private WelcomeMessage welcomeMessage;
     private BookList bookList;
     private UserInteraction userInteraction;
-    private Display display;
+    private IO display;
     private Menu menu;
 
     @Before
     public void setUp() throws Exception {
         welcomeMessage = mock(WelcomeMessage.class);
         bookList = mock(BookList.class);
-        display = mock(Display.class);
+        display = mock(IO.class);
         menu = mock(Menu.class);
         userInteraction = new UserInteraction(welcomeMessage, bookList, display, menu);
     }

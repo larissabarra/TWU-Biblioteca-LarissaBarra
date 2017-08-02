@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.domain;
 
+import com.twu.biblioteca.domain.WelcomeMessage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

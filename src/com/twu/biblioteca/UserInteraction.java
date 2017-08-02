@@ -1,12 +1,16 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.domain.BookList;
+import com.twu.biblioteca.domain.Menu;
+import com.twu.biblioteca.domain.WelcomeMessage;
+
 public class UserInteraction {
     private final WelcomeMessage welcomeMessage;
     private final BookList bookList;
-    private final Display display;
+    private final IO display;
     private final Menu menu;
 
-    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, Display display, Menu menu) {
+    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, IO display, Menu menu) {
         this.welcomeMessage = welcomeMessage;
         this.bookList = bookList;
         this.display = display;
