@@ -6,9 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -52,4 +50,10 @@ public class BookListTest {
         assertEquals("Book 2 - author 2 - 1994\n", printedList);
     }
 
+    @Test
+    public void doCheckout() throws Exception {
+        BookList list = new BookList();
+        boolean checkoutBook1 = list.checkoutByTitle("Book 1");
+        assertTrue(checkoutBook1);
+    }
 }

@@ -29,6 +29,10 @@ public class Book {
         return false;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public boolean isChecked() {
         return checked;
     }

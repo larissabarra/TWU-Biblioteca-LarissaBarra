@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class BookList {
     private List<Book> bookList;
@@ -33,7 +34,8 @@ public class BookList {
         return list;
     }
 
-    public boolean checkoutByTitle(String xyz) {
-        return true;
+    public boolean checkoutByTitle(String title) {
+        Optional<Book> bookToCheckout = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
+        return bookToCheckout != null && bookToCheckout.get().checkOut();
     }
 }
