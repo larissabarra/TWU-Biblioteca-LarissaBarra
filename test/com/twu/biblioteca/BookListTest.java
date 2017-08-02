@@ -42,4 +42,13 @@ public class BookListTest {
         List list = bookList.getBookList();
         assertEquals(2017, ((Book) list.get(0)).getYear());
     }
+
+    @Test
+    public void printOnlyAvailableBooks() throws Exception {
+        BookList list = new BookList();
+        list.getBookList().get(0).checkOut();
+
+        String printedList = list.printAvailableBooks();
+        assertEquals("Book 2 - author 2 - 1994\n", printedList);
+    }
 }
