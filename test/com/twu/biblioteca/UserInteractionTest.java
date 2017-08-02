@@ -92,6 +92,14 @@ public class UserInteractionTest {
 
     @Test
     public void showMessageForSuccessfulCheckout() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(2, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(bookList.checkoutByTitle("xyz"))
+                .thenReturn(true);
 
+        userInteraction.execute();
+        verify(display).print("Thank you! Enjoy the book.");
     }
 }

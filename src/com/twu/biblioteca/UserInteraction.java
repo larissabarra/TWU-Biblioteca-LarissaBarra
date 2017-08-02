@@ -27,7 +27,10 @@ public class UserInteraction {
                 case 1: display.print(bookList.printAvailableBooks());
                     break;
                 case 2: String bookTitle = display.waitForUserStringInput();
-                    bookList.checkoutByTitle(bookTitle);
+                    boolean checkoutSuccessful = bookList.checkoutByTitle(bookTitle);
+                    if (checkoutSuccessful) {
+                        display.print("Thank you! Enjoy the book.");
+                    }
                     break;
                 case 9: display.print("Bye!");
                     break;
