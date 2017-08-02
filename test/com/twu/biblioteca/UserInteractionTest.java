@@ -66,9 +66,9 @@ public class UserInteractionTest {
     @Test
     public void chooseInvalidMenuOption() throws Exception {
         when(display.waitForUserIntInput())
-                .thenReturn(2);
+                .thenReturn(2, 9);
         userInteraction.execute();
-        verify(display).waitForUserIntInput();
+        verify(display, times(2)).waitForUserIntInput();
         verify(display).print("Select a valid option!");
     }
 
