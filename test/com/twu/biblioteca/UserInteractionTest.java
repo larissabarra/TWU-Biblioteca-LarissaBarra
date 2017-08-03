@@ -142,4 +142,17 @@ public class UserInteractionTest {
         userInteraction.execute();
         verify(display).print("Thank you for returning the book.");
     }
+
+    @Test
+    public void showMessageForUnsuccessfulReturn() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(3, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(bookList.returnByTitle("xyz"))
+                .thenReturn(false);
+
+        userInteraction.execute();
+        verify(display).print("That is not a valid book to return.");
+    }
 }

@@ -16,14 +16,6 @@ public class BookList {
         return bookList;
     }
 
-    public String printBookList() {
-        String list = "";
-        for (Book book : bookList) {
-            list += book.toString() + "\n";
-        }
-        return list;
-    }
-
     public String printAvailableBooks() {
         String list = "";
         for (Book book : bookList) {
@@ -36,11 +28,11 @@ public class BookList {
 
     public boolean checkoutByTitle(String title) {
         Optional<Book> bookToCheckout = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
-        return bookToCheckout != null && bookToCheckout.get().checkout();
+        return bookToCheckout.isPresent() && bookToCheckout.get().checkout();
     }
 
     public boolean returnByTitle(String title) {
-        Optional<Book> bookToCheckout = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
-        return bookToCheckout != null && bookToCheckout.get().returnBook();
+        Optional<Book> bookToReturn = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
+        return bookToReturn.isPresent() && bookToReturn.get().returnBook();
     }
 }
