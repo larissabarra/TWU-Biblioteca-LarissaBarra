@@ -2,6 +2,7 @@ package com.twu.biblioteca.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class MovieList {
     private List<Movie> movieList;
@@ -23,5 +24,10 @@ public class MovieList {
 
     public List<Movie> getMovieList() {
         return movieList;
+    }
+
+    public boolean checkoutByName(String name) {
+        Optional<Movie> movieToCheckout = movieList.stream().filter(x -> x.getName().equalsIgnoreCase(name)).findFirst();
+        return movieToCheckout.isPresent() && movieToCheckout.get().checkout();
     }
 }

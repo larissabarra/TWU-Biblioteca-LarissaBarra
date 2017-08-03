@@ -6,6 +6,7 @@ public class Menu {
                 + "2 - Checkout book\n"
                 + "3 - Return book\n"
                 + "4 - List available movies\n"
+                + "5 - Checkout movie\n"
                 + "9 - Exit\n";
     }
 }
