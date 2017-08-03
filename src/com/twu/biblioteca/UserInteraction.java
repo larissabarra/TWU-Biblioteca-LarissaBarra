@@ -63,11 +63,17 @@ public class UserInteraction {
                         display.print("That movie is not available.");
                     }
                     break;
+                case 7: printLoggedUsersData();
+                    break;
                 case 9: display.print("Bye!");
                     break;
                 default: display.print("Select a valid option!");
                     break;
             }
         }
+    }
+
+    public void printLoggedUsersData() {
+        display.print(loggedUser.toString());
     }
 }

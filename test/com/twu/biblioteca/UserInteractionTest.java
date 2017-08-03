@@ -238,12 +238,23 @@ public class UserInteractionTest {
         verify(menu).showMenu();
     }
 
+    @Test
+    public void printUserInformation() throws Exception {
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(7, 9);
+
+        userInteraction.execute();
+        userInteraction.printLoggedUsersData();
+        verify(display).print("Library number: zzz-zzzz\nName: user1\nEmail: email1\nPhone: xxx");
+    }
+
     private void simulateLogin() {
         when(display.waitForUserStringInput("Enter your library number: "))
-                .thenReturn("xxx-xxxx");
+                .thenReturn("zzz-zzzz");
         when(display.waitForUserStringInput("Enter your password: "))
-                .thenReturn("123");
-        when(userList.login("xxx-xxxx", "123"))
-                .thenReturn(new User("user 1", "email 1", "123", "xxx", "xxx-xxxx"));
+                .thenReturn("qwe");
+        when(userList.login("zzz-zzzz", "qwe"))
+                .thenReturn(new Costumer("zzz-zzzz", "qwe", "user1", "email1", "xxx"));
     }
 }

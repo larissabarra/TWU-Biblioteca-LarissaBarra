@@ -8,8 +8,8 @@ public class UserList {
     private List<User> userList;
 
     public UserList() {
-        this.userList = Arrays.asList(new User("user 1", "email 1", "123", "xxx", "xxx-xxxx"),
-                new User("user 2", "email 2", "qwe", "zzz", "zzz-zzzz"));
+        this.userList = Arrays.asList(new User("xxx-xxxx", "123"),
+                new Costumer("zzz-zzzz", "qwe", "name","email", "phone"));
     }
 
     public User login(String libraryNumber, String password) {

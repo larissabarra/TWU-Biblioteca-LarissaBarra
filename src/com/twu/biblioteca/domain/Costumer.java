@@ -23,4 +23,10 @@ public class Costumer extends User {
     public String getPhone() {
         return phone;
     }
+
+    @Override
+    public String toString() {
+        String lib = super.toString();
+        return lib + "\nName: " + getName() + "\nEmail: " + getEmail() + "\nPhone: " + getPhone();
+    }
 }
