@@ -3,6 +3,7 @@ package com.twu.biblioteca.domain;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MovieTest {
     @Test
@@ -27,5 +28,11 @@ public class MovieTest {
     public void movieHasRating() throws Exception {
         Movie movie = new Movie("name", "director", 2016, 8);
         assertEquals(8, movie.getRating());
+    }
+
+    @Test
+    public void doCheckOut() throws Exception {
+        Movie movie = new Movie("name", "director", 2016, 8);
+        assertTrue(movie.checkout());
     }
 }

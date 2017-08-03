@@ -18,6 +18,7 @@ public class BookTest {
         Book book = new Book("title", "author", 2017);
         assertEquals(2017, book.getYear());
     }
+
     @Test
     public void doCheckOut() throws Exception {
         Book book = new Book("title", "author", 2017);

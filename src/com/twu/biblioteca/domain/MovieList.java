@@ -4,21 +4,24 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MovieList {
-    private List<Book> movieList;
+    private List<Movie> movieList;
 
     public MovieList() {
-        this.movieList = Arrays.asList(new Book("Book 1", "author 1", 2017),
-                new Book("Book 2", "author 2", 1994));
+        this.movieList = Arrays.asList(new Movie("Movie 1", "director 1", 2017, 10),
+                new Movie("Movie 2", "director 2", 1994, 9));
     }
 
     public String printAvailableMovies() {
-        /*String list = "";
-        for (Book book : movieList) {
-            if (!book.isChecked()) {
-                list += book.toString() + "\n";
+        String list = "";
+        for (Movie movie : movieList) {
+            if (!movie.isChecked()) {
+                list += movie.toString() + "\n";
             }
         }
-        return list;*/
-        return "Movie1\nMovie2\n";
+        return list;
+    }
+
+    public List<Movie> getMovieList() {
+        return movieList;
     }
 }
