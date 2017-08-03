@@ -46,6 +46,12 @@ public class UserInteraction {
                     break;
                 case 5: String movieToCheckout = display.waitForUserStringInput();
                     boolean movieCheckoutSuccessful = movieList.checkoutByName(movieToCheckout);
+                    if (movieCheckoutSuccessful) {
+                        display.print("Thank you! Enjoy the movie.");
+                    } else {
+                        display.print("That movie is not available.");
+                    }
+                    break;
                 case 9: display.print("Bye!");
                     break;
                 default: display.print("Select a valid option!");

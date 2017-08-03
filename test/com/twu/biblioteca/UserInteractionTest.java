@@ -121,6 +121,19 @@ public class UserInteractionTest {
     }
 
     @Test
+    public void showMessageForSuccessfulMovieCheckout() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(5, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(movieList.checkoutByName("xyz"))
+                .thenReturn(true);
+
+        userInteraction.execute();
+        verify(display).print("Thank you! Enjoy the movie.");
+    }
+
+    @Test
     public void showMessageForUnsuccessfulBookCheckout() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
@@ -131,6 +144,19 @@ public class UserInteractionTest {
 
         userInteraction.execute();
         verify(display).print("That book is not available.");
+    }
+
+    @Test
+    public void showMessageForUnsuccessfulMovieCheckout() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(5, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(movieList.checkoutByName("xyz"))
+                .thenReturn(false);
+
+        userInteraction.execute();
+        verify(display).print("That movie is not available.");
     }
 
     @Test

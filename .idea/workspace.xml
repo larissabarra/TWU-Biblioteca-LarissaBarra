@@ -18,8 +18,8 @@
       <file leaf-file-name="UserInteractionTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="106" column="41" lean-forward="false" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+            <state relative-caret-position="429">
+              <caret line="158" column="41" lean-forward="false" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file leaf-file-name="UserInteraction.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+            <state relative-caret-position="400">
+              <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -211,26 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserInteractionTest.chooseMovieCheckoutMenuOption">
-    <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="biblioteca" />
-      <envs />
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserInteractionTest.showMessageForUnsuccessfulMovieCheckout">
     <configuration name="MovieListTest.doCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -256,31 +237,6 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="MovieListTest.printMoviesList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.domain.MovieListTest" />
-      <option name="METHOD_NAME" value="printMoviesList" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -294,6 +250,56 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.UserInteractionTest" />
       <option name="METHOD_NAME" value="chooseMovieCheckoutMenuOption" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserInteractionTest.showMessageForSuccessfulMovieCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.UserInteractionTest" />
+      <option name="METHOD_NAME" value="showMessageForSuccessfulMovieCheckout" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserInteractionTest.showMessageForUnsuccessfulMovieCheckout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.UserInteractionTest" />
+      <option name="METHOD_NAME" value="showMessageForUnsuccessfulMovieCheckout" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -414,18 +420,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MovieListTest.printMoviesList" />
-      <item index="2" class="java.lang.String" itemvalue="Application.BibliotecaApp" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MovieListTest.doCheckout" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.chooseMovieCheckoutMenuOption" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MovieListTest.doCheckout" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.chooseMovieCheckoutMenuOption" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.showMessageForSuccessfulMovieCheckout" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.showMessageForUnsuccessfulMovieCheckout" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.chooseMovieCheckoutMenuOption" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MovieListTest.doCheckout" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
-        <item index="3" class="java.lang.String" itemvalue="Application.BibliotecaApp" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MovieListTest.printMoviesList" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.showMessageForUnsuccessfulMovieCheckout" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.showMessageForSuccessfulMovieCheckout" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserInteractionTest.chooseMovieCheckoutMenuOption" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MovieListTest.doCheckout" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.com.twu.biblioteca in biblioteca" />
       </list>
     </recent_temporary>
   </component>
@@ -442,26 +448,11 @@
       <workItem from="1501527814342" duration="13209000" />
       <workItem from="1501693980708" duration="6122000" />
       <workItem from="1501707765833" duration="2438000" />
-      <workItem from="1501710345671" duration="7085000" />
+      <workItem from="1501710345671" duration="7336000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MovieListTest_doCheckout - 2017.08.03 at 14h 30m 47s.xml">
-      <configuration name="MovieListTest.doCheckout" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MovieListTest_doCheckout - 2017.08.03 at 14h 32m 21s.xml">
-      <configuration name="MovieListTest.doCheckout" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MovieListTest_printMoviesList - 2017.08.03 at 11h 34m 36s.xml">
-      <configuration name="MovieListTest.printMoviesList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MovieListTest_printMoviesList - 2017.08.03 at 11h 34m 50s.xml">
-      <configuration name="MovieListTest.printMoviesList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MovieListTest_printMoviesList - 2017.08.03 at 11h 35m 03s.xml">
-      <configuration name="MovieListTest.printMoviesList" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserInteractionTest_chooseMovieCheckoutMenuOption - 2017.08.03 at 14h 41m 03s.xml">
       <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" configurationId="JUnit" />
     </history-entry>
@@ -471,15 +462,30 @@
     <history-entry file="UserInteractionTest_chooseMovieCheckoutMenuOption - 2017.08.03 at 14h 42m 54s.xml">
       <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_twu_biblioteca_in_biblioteca - 2017.08.03 at 11h 39m 13s.xml">
-      <configuration name="com.twu.biblioteca in biblioteca" configurationId="JUnit" />
+    <history-entry file="UserInteractionTest_chooseMovieCheckoutMenuOption - 2017.08.03 at 14h 44m 36s.xml">
+      <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="com_twu_biblioteca_in_biblioteca - 2017.08.03 at 14h 26m 10s.xml">
-      <configuration name="com.twu.biblioteca in biblioteca" configurationId="JUnit" />
+    <history-entry file="UserInteractionTest_chooseMovieCheckoutMenuOption - 2017.08.03 at 14h 45m 06s.xml">
+      <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserInteractionTest_chooseMovieCheckoutMenuOption - 2017.08.03 at 14h 45m 22s.xml">
+      <configuration name="UserInteractionTest.chooseMovieCheckoutMenuOption" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserInteractionTest_showMessageForSuccessfulMovieCheckout - 2017.08.03 at 14h 45m 47s.xml">
+      <configuration name="UserInteractionTest.showMessageForSuccessfulMovieCheckout" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserInteractionTest_showMessageForSuccessfulMovieCheckout - 2017.08.03 at 14h 46m 13s.xml">
+      <configuration name="UserInteractionTest.showMessageForSuccessfulMovieCheckout" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserInteractionTest_showMessageForUnsuccessfulMovieCheckout - 2017.08.03 at 14h 46m 56s.xml">
+      <configuration name="UserInteractionTest.showMessageForUnsuccessfulMovieCheckout" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserInteractionTest_showMessageForUnsuccessfulMovieCheckout - 2017.08.03 at 14h 47m 08s.xml">
+      <configuration name="UserInteractionTest.showMessageForUnsuccessfulMovieCheckout" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28854000" />
+    <option name="totallyTimeSpent" value="29105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -906,8 +912,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="106" column="41" lean-forward="false" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+        <state relative-caret-position="429">
+          <caret line="158" column="41" lean-forward="false" selection-start-line="158" selection-start-column="41" selection-end-line="158" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -916,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="47" column="34" lean-forward="false" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+        <state relative-caret-position="400">
+          <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
           <folding />
         </state>
       </provider>
