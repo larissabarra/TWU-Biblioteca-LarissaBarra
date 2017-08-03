@@ -13,20 +13,15 @@ import static org.mockito.Mockito.when;
 public class BookListTest {
     private BookList bookList;
 
-    @Before
-    public void setUp() throws Exception {
-        bookList = mock(BookList.class);
-    }
-
     @Test
     public void returnsListOfBooks() throws Exception {
-        assertNotNull(bookList.getBookList());
+        BookList list = new BookList();
+        assertNotNull(list.getBookList());
     }
 
     @Test
     public void booksHaveAuthor() throws Exception {
-        when(bookList.getBookList())
-                .thenReturn(Arrays.asList(new Book("book 1","author", 2017)));
+        BookList bookList = new BookList();
 
         List list = bookList.getBookList();
         assertEquals("author", ((Book) list.get(0)).getAuthor());
@@ -34,8 +29,7 @@ public class BookListTest {
 
     @Test
     public void booksHaveYear() throws Exception {
-        when(bookList.getBookList())
-                .thenReturn(Arrays.asList(new Book("book 1","author", 2017)));
+        BookList bookList = new BookList();
 
         List list = bookList.getBookList();
         assertEquals(2017, ((Book) list.get(0)).getYear());
