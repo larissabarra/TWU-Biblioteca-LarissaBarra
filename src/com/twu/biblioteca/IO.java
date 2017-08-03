@@ -10,8 +10,8 @@ public class IO {
         System.out.println(message);
     }
 
-    public int waitForUserIntInput() {
-        System.out.print("Choose your option: ");
+    public int waitForUserIntInput(String message) {
+        System.out.print(message);
         try {
             return sc.nextInt();
         } catch (InputMismatchException ex) {
@@ -19,8 +19,8 @@ public class IO {
         }
     }
 
-    public String waitForUserStringInput() {
-        System.out.print("Enter the book title: ");
+    public String waitForUserStringInput(String message) {
+        System.out.print(message);
         try {
             sc.nextLine();
             return sc.nextLine();

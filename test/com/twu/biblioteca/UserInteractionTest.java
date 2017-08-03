@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.domain.BookList;
-import com.twu.biblioteca.domain.Menu;
-import com.twu.biblioteca.domain.MovieList;
-import com.twu.biblioteca.domain.WelcomeMessage;
+import com.twu.biblioteca.domain.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +11,7 @@ public class UserInteractionTest {
     private WelcomeMessage welcomeMessage;
     private BookList bookList;
     private MovieList movieList;
+    private UserList userList;
     private UserInteraction userInteraction;
     private IO display;
     private Menu menu;
@@ -23,16 +21,18 @@ public class UserInteractionTest {
         welcomeMessage = mock(WelcomeMessage.class);
         bookList = mock(BookList.class);
         movieList = mock(MovieList.class);
+        userList = mock(UserList.class);
         display = mock(IO.class);
         menu = mock(Menu.class);
-        userInteraction = new UserInteraction(welcomeMessage, bookList, movieList, display, menu);
+        userInteraction = new UserInteraction(welcomeMessage, bookList, movieList, userList, display, menu);
     }
 
     @Test
     public void printWelcomeMessage() throws Exception {
+        simulateLogin();
         when(welcomeMessage.returnWelcomeMessage())
                 .thenReturn("Ei");
-        when(display.waitForUserIntInput())
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(9);
 
         userInteraction.execute();
@@ -42,9 +42,10 @@ public class UserInteractionTest {
 
     @Test
     public void showMenu() throws Exception {
+        simulateLogin();
         when(menu.showMenu())
                 .thenReturn("1 - List books");
-        when(display.waitForUserIntInput())
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(9);
 
         userInteraction.execute();
@@ -54,64 +55,73 @@ public class UserInteractionTest {
 
     @Test
     public void chooseMenuOption() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(1, 9);
+
         userInteraction.execute();
-        verify(display, times(2)).waitForUserIntInput();
+        verify(display, times(2)).waitForUserIntInput("Choose your option: ");
         verify(bookList).printAvailableBooks();
     }
 
     @Test
     public void chooseInvalidMenuOption() throws Exception {
-        when(display.waitForUserIntInput())
-                .thenReturn(8, 9);
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(10, 9);
+
         userInteraction.execute();
-        verify(display, times(2)).waitForUserIntInput();
+        verify(display, times(2)).waitForUserIntInput("Choose your option: ");
         verify(display).print("Select a valid option!");
     }
 
     @Test
     public void showMenuWhileUserDoesntQuit() throws Exception {
-        when(display.waitForUserIntInput())
-                .thenReturn(8,9);
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(10,9);
+
         userInteraction.execute();
-        verify(display, times(2)).waitForUserIntInput();
+        verify(display, times(2)).waitForUserIntInput("Choose your option: ");
         verify(menu, times(2)).showMenu();
     }
 
     @Test
     public void chooseBookCheckoutMenuOption() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(2, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
                 .thenReturn(true);
 
         userInteraction.execute();
-        verify(display).waitForUserStringInput();
+        verify(display).waitForUserStringInput("Enter the book title: ");
         verify(bookList).checkoutByTitle("xyz");
     }
 
     @Test
     public void chooseMovieCheckoutMenuOption() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(5, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByName("xyz"))
                 .thenReturn(true);
 
         userInteraction.execute();
-        verify(display).waitForUserStringInput();
+        verify(display).waitForUserStringInput("Enter the movie title: ");
         verify(movieList).checkoutByName("xyz");
     }
 
     @Test
     public void showMessageForSuccessfulBookCheckout() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(2, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
                 .thenReturn(true);
@@ -122,9 +132,10 @@ public class UserInteractionTest {
 
     @Test
     public void showMessageForSuccessfulMovieCheckout() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(5, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByName("xyz"))
                 .thenReturn(true);
@@ -135,9 +146,10 @@ public class UserInteractionTest {
 
     @Test
     public void showMessageForUnsuccessfulBookCheckout() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(2, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
                 .thenReturn(false);
@@ -148,9 +160,10 @@ public class UserInteractionTest {
 
     @Test
     public void showMessageForUnsuccessfulMovieCheckout() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(5, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByName("xyz"))
                 .thenReturn(false);
@@ -161,23 +174,25 @@ public class UserInteractionTest {
 
     @Test
     public void chooseBookReturnMenuOption() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(3, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
                 .thenReturn(true);
 
         userInteraction.execute();
-        verify(display).waitForUserStringInput();
+        verify(display).waitForUserStringInput("Enter the book title: ");
         verify(bookList).returnByTitle("xyz");
     }
 
     @Test
     public void showMessageForSuccessfulBookReturn() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(3, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
                 .thenReturn(true);
@@ -188,14 +203,47 @@ public class UserInteractionTest {
 
     @Test
     public void showMessageForUnsuccessfulBookReturn() throws Exception {
-        when(display.waitForUserIntInput())
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
                 .thenReturn(3, 9);
-        when(display.waitForUserStringInput())
+        when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
                 .thenReturn(false);
 
         userInteraction.execute();
         verify(display).print("That is not a valid book to return.");
+    }
+
+    @Test
+    public void chooseLoginOption() throws Exception {
+        simulateLogin();
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(8, 9);
+
+        userInteraction.execute();
+        verify(display).waitForUserStringInput("Enter your library number: ");
+        verify(display).waitForUserStringInput("Enter your password: ");
+    }
+
+    @Test
+    public void demandLoginBeforeUsingSystem() throws Exception {
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(9);
+        simulateLogin();
+
+        userInteraction.execute();
+        verify(display).waitForUserStringInput("Enter your library number: ");
+        verify(display).waitForUserStringInput("Enter your password: ");
+        verify(menu).showMenu();
+    }
+
+    private void simulateLogin() {
+        when(display.waitForUserStringInput("Enter your library number: "))
+                .thenReturn("xxx-xxxx");
+        when(display.waitForUserStringInput("Enter your password: "))
+                .thenReturn("123");
+        when(userList.login("xxx-xxxx", "123"))
+                .thenReturn(new User("user 1", "email 1", "123", "xxx", "xxx-xxxx"));
     }
 }
