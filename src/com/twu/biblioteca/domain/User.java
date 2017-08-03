@@ -1,17 +1,11 @@
 package com.twu.biblioteca.domain;
 
 public class User {
-    private final String name;
-    private final String email;
-    private final String password;
-    private final String phone;
-    private final String libraryNumber;
+    protected final String password;
+    protected final String libraryNumber;
 
-    public User(String name, String email, String password, String phone, String libraryNumber) {
-        this.name = name;
-        this.email = email;
+    public User(String libraryNumber, String password) {
         this.password = password;
-        this.phone = phone;
         this.libraryNumber = libraryNumber;
     }
 
@@ -19,19 +13,7 @@ public class User {
         return libraryNumber;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getName() {
-        return name;
     }
 }
