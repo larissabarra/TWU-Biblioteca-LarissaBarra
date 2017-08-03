@@ -19,22 +19,6 @@ public class BookListTest {
     }
 
     @Test
-    public void booksHaveAuthor() throws Exception {
-        BookList bookList = new BookList();
-
-        List list = bookList.getBookList();
-        assertEquals("author 1", ((Book) list.get(0)).getAuthor());
-    }
-
-    @Test
-    public void booksHaveYear() throws Exception {
-        BookList bookList = new BookList();
-
-        List list = bookList.getBookList();
-        assertEquals(2017, ((Book) list.get(0)).getYear());
-    }
-
-    @Test
     public void printOnlyAvailableBooks() throws Exception {
         BookList list = new BookList();
         list.getBookList().get(0).checkout();
