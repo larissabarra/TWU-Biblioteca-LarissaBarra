@@ -36,9 +36,9 @@ public class UserInteraction {
                     break;
                 case 3: String bookToReturn = display.waitForUserStringInput();
                     boolean returnSuccessful = bookList.returnByTitle(bookToReturn);
-                    /*if (returnSuccessful) {
-                        display.print("Thank you! Enjoy the book.");
-                    } else {
+                    if (returnSuccessful) {
+                        display.print("Thank you for returning the book.");
+                    } /*else {
                         display.print("That book is not available.");
                     }*/
                     break;

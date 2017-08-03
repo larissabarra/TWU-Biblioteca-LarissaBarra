@@ -129,4 +129,17 @@ public class UserInteractionTest {
         verify(display).waitForUserStringInput();
         verify(bookList).returnByTitle("xyz");
     }
+
+    @Test
+    public void showMessageForSuccessfulReturn() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(3, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(bookList.returnByTitle("xyz"))
+                .thenReturn(true);
+
+        userInteraction.execute();
+        verify(display).print("Thank you for returning the book.");
+    }
 }
