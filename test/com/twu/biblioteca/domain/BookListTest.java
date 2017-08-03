@@ -11,7 +11,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class BookListTest {
-    private BookList bookList;
 
     @Test
     public void returnsListOfBooks() throws Exception {
@@ -24,7 +23,7 @@ public class BookListTest {
         BookList bookList = new BookList();
 
         List list = bookList.getBookList();
-        assertEquals("author", ((Book) list.get(0)).getAuthor());
+        assertEquals("author 1", ((Book) list.get(0)).getAuthor());
     }
 
     @Test

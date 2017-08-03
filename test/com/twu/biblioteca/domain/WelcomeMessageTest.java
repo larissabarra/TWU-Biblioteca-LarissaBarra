@@ -10,7 +10,7 @@ public class WelcomeMessageTest {
     @Test
     public void displayWelcomeMessageWhenInitialized() throws Exception {
         WelcomeMessage message = new WelcomeMessage();
-        assertEquals("Oi", message.returnWelcomeMessage());
+        assertEquals("Hi, welcome to Biblioteca!\n", message.returnWelcomeMessage());
     }
 
 }
