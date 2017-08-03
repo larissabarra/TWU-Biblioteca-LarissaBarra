@@ -22,10 +22,14 @@ public class IO {
     public String waitForUserStringInput(String message) {
         System.out.print(message);
         try {
-            sc.nextLine();
+            clearBuffer();
             return sc.nextLine();
         } catch (InputMismatchException ex) {
             return "-";
         }
+    }
+
+    public void clearBuffer() {
+        sc.reset();
     }
 }

@@ -25,6 +25,7 @@ public class UserInteraction {
         display.print(welcomeMessage.returnWelcomeMessage());
         display.print("Log in before using the system.");
         while (loggedUser == null) {
+            display.clearBuffer();
             String libNumber = display.waitForUserStringInput("Enter your library number: ");
             String password = display.waitForUserStringInput("Enter your password: ");
             loggedUser = userList.login(libNumber, password);
