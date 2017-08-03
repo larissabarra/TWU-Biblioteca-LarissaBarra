@@ -23,8 +23,7 @@ public class IO {
         System.out.print("Enter the book title: ");
         try {
             sc.nextLine();
-            String retorno = sc.nextLine();
-            return retorno;
+            return sc.nextLine();
         } catch (InputMismatchException ex) {
             return "-";
         }

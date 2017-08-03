@@ -1,7 +1,5 @@
 package com.twu.biblioteca.domain;
 
-import com.twu.biblioteca.domain.Book;
-import com.twu.biblioteca.domain.BookList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +44,7 @@ public class BookListTest {
     @Test
     public void printOnlyAvailableBooks() throws Exception {
         BookList list = new BookList();
-        list.getBookList().get(0).checkOut();
+        list.getBookList().get(0).checkout();
 
         String printedList = list.printAvailableBooks();
         assertEquals("Book 2 - author 2 - 1994\n", printedList);
@@ -57,5 +55,12 @@ public class BookListTest {
         BookList list = new BookList();
         boolean checkoutBook1 = list.checkoutByTitle("Book 1");
         assertTrue(checkoutBook1);
+    }
+
+    @Test
+    public void returnBook() throws Exception {
+        BookList list = new BookList();
+        assertTrue(list.checkoutByTitle("Book 1"));
+        assertTrue(list.returnByTitle("Book 1"));
     }
 }

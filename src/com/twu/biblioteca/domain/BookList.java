@@ -1,7 +1,5 @@
 package com.twu.biblioteca.domain;
 
-import com.twu.biblioteca.domain.Book;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +36,11 @@ public class BookList {
 
     public boolean checkoutByTitle(String title) {
         Optional<Book> bookToCheckout = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
-        return bookToCheckout != null && bookToCheckout.get().checkOut();
+        return bookToCheckout != null && bookToCheckout.get().checkout();
+    }
+
+    public boolean returnByTitle(String title) {
+        Optional<Book> bookToCheckout = bookList.stream().filter(x -> x.getTitle().equalsIgnoreCase(title)).findFirst();
+        return bookToCheckout != null && bookToCheckout.get().returnBook();
     }
 }

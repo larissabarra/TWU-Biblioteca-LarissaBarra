@@ -77,7 +77,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void chooseCheckOutMenuOption() throws Exception {
+    public void chooseCheckoutMenuOption() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
         when(display.waitForUserStringInput())
@@ -114,5 +114,19 @@ public class UserInteractionTest {
 
         userInteraction.execute();
         verify(display).print("That book is not available.");
+    }
+
+    @Test
+    public void chooseReturnMenuOption() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(3, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(bookList.returnByTitle("xyz"))
+                .thenReturn(true);
+
+        userInteraction.execute();
+        verify(display).waitForUserStringInput();
+        verify(bookList).returnByTitle("xyz");
     }
 }

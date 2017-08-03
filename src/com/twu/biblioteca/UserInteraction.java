@@ -26,13 +26,21 @@ public class UserInteraction {
             switch (choice) {
                 case 1: display.print(bookList.printAvailableBooks());
                     break;
-                case 2: String bookTitle = display.waitForUserStringInput();
-                    boolean checkoutSuccessful = bookList.checkoutByTitle(bookTitle);
+                case 2: String bookToCheckout = display.waitForUserStringInput();
+                    boolean checkoutSuccessful = bookList.checkoutByTitle(bookToCheckout);
                     if (checkoutSuccessful) {
                         display.print("Thank you! Enjoy the book.");
                     } else {
                         display.print("That book is not available.");
                     }
+                    break;
+                case 3: String bookToReturn = display.waitForUserStringInput();
+                    boolean returnSuccessful = bookList.returnByTitle(bookToReturn);
+                    /*if (returnSuccessful) {
+                        display.print("Thank you! Enjoy the book.");
+                    } else {
+                        display.print("That book is not available.");
+                    }*/
                     break;
                 case 9: display.print("Bye!");
                     break;

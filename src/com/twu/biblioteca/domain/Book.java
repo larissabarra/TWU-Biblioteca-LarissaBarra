@@ -21,7 +21,7 @@ public class Book {
         return year;
     }
 
-    public boolean checkOut() {
+    public boolean checkout() {
         if (!isChecked()) {
             setChecked(true);
             return true;
@@ -44,5 +44,13 @@ public class Book {
     @Override
     public String toString() {
         return title + " - " + author + " - " + year;
+    }
+
+    public boolean returnBook() {
+        if (isChecked()) {
+            setChecked(false);
+            return true;
+        }
+        return false;
     }
 }
