@@ -1,18 +1,18 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.domain.BookList;
-import com.twu.biblioteca.domain.Menu;
-import com.twu.biblioteca.domain.WelcomeMessage;
+import com.twu.biblioteca.domain.*;
 
 public class UserInteraction {
     private final WelcomeMessage welcomeMessage;
     private final BookList bookList;
+    private final MovieList movieList;
     private final IO display;
     private final Menu menu;
 
-    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, IO display, Menu menu) {
+    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, MovieList movieList, IO display, Menu menu) {
         this.welcomeMessage = welcomeMessage;
         this.bookList = bookList;
+        this.movieList = movieList;
         this.display = display;
         this.menu = menu;
     }
@@ -41,6 +41,8 @@ public class UserInteraction {
                     } else {
                         display.print("That is not a valid book to return.");
                     }
+                    break;
+                case 4: display.print(movieList.printAvailableMovies());
                     break;
                 case 9: display.print("Bye!");
                     break;
