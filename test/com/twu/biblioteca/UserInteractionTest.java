@@ -102,4 +102,17 @@ public class UserInteractionTest {
         userInteraction.execute();
         verify(display).print("Thank you! Enjoy the book.");
     }
+
+    @Test
+    public void showMessageForUnsuccessfulCheckout() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(2, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(bookList.checkoutByTitle("xyz"))
+                .thenReturn(false);
+
+        userInteraction.execute();
+        verify(display).print("That book is not available.");
+    }
 }

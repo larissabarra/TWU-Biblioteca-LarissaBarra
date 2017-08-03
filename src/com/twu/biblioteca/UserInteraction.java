@@ -30,6 +30,8 @@ public class UserInteraction {
                     boolean checkoutSuccessful = bookList.checkoutByTitle(bookTitle);
                     if (checkoutSuccessful) {
                         display.print("Thank you! Enjoy the book.");
+                    } else {
+                        display.print("That book is not available.");
                     }
                     break;
                 case 9: display.print("Bye!");
