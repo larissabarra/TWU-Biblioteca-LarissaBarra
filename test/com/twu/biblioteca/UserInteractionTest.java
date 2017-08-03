@@ -80,7 +80,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void chooseCheckoutMenuOption() throws Exception {
+    public void chooseBookCheckoutMenuOption() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
         when(display.waitForUserStringInput())
@@ -94,7 +94,21 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void showMessageForSuccessfulCheckout() throws Exception {
+    public void chooseMovieCheckoutMenuOption() throws Exception {
+        when(display.waitForUserIntInput())
+                .thenReturn(5, 9);
+        when(display.waitForUserStringInput())
+                .thenReturn("xyz");
+        when(movieList.checkoutByName("xyz"))
+                .thenReturn(true);
+
+        userInteraction.execute();
+        verify(display).waitForUserStringInput();
+        verify(movieList).checkoutByName("xyz");
+    }
+
+    @Test
+    public void showMessageForSuccessfulBookCheckout() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
         when(display.waitForUserStringInput())
@@ -107,7 +121,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void showMessageForUnsuccessfulCheckout() throws Exception {
+    public void showMessageForUnsuccessfulBookCheckout() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(2, 9);
         when(display.waitForUserStringInput())
@@ -120,7 +134,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void chooseReturnMenuOption() throws Exception {
+    public void chooseBookReturnMenuOption() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(3, 9);
         when(display.waitForUserStringInput())
@@ -134,7 +148,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void showMessageForSuccessfulReturn() throws Exception {
+    public void showMessageForSuccessfulBookReturn() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(3, 9);
         when(display.waitForUserStringInput())
@@ -147,7 +161,7 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void showMessageForUnsuccessfulReturn() throws Exception {
+    public void showMessageForUnsuccessfulBookReturn() throws Exception {
         when(display.waitForUserIntInput())
                 .thenReturn(3, 9);
         when(display.waitForUserStringInput())

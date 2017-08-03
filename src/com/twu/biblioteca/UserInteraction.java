@@ -27,8 +27,8 @@ public class UserInteraction {
                 case 1: display.print(bookList.printAvailableBooks());
                     break;
                 case 2: String bookToCheckout = display.waitForUserStringInput();
-                    boolean checkoutSuccessful = bookList.checkoutByTitle(bookToCheckout);
-                    if (checkoutSuccessful) {
+                    boolean bookCheckoutSuccessful = bookList.checkoutByTitle(bookToCheckout);
+                    if (bookCheckoutSuccessful) {
                         display.print("Thank you! Enjoy the book.");
                     } else {
                         display.print("That book is not available.");
@@ -44,6 +44,8 @@ public class UserInteraction {
                     break;
                 case 4: display.print(movieList.printAvailableMovies());
                     break;
+                case 5: String movieToCheckout = display.waitForUserStringInput();
+                    boolean movieCheckoutSuccessful = movieList.checkoutByName(movieToCheckout);
                 case 9: display.print("Bye!");
                     break;
                 default: display.print("Select a valid option!");
