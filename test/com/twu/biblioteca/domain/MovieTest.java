@@ -9,7 +9,7 @@ public class MovieTest {
     @Test
     public void movieHasName() throws Exception {
         Movie movie = new Movie("name", "director", 2016, 8);
-        assertEquals("name", movie.getName());
+        assertEquals("name", movie.getTitle());
     }
 
     @Test

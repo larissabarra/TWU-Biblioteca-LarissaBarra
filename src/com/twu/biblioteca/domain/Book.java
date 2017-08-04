@@ -1,49 +1,17 @@
 package com.twu.biblioteca.domain;
 
-public class Book {
-    private final String title;
+public class Book extends Media {
     private final String author;
-    private final int year;
     private boolean checked;
 
     public Book(String title, String author, int year) {
-        this.title = title;
+        super(title, year);
         this.author = author;
-        this.year = year;
         this.checked = false;
     }
 
     public String getAuthor() {
         return author;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public boolean checkout() {
-        if (!isChecked()) {
-            setChecked(true);
-            return true;
-        }
-        return false;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
-    }
-
-    @Override
-    public String toString() {
-        return title + " - " + author + " - " + year;
     }
 
     public boolean returnBook() {
@@ -52,5 +20,10 @@ public class Book {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return title + " - " + author + " - " + year;
     }
 }

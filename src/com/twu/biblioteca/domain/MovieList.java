@@ -27,7 +27,7 @@ public class MovieList {
     }
 
     public boolean checkoutByName(String name) {
-        Optional<Movie> movieToCheckout = movieList.stream().filter(x -> x.getName().equalsIgnoreCase(name)).findFirst();
+        Optional<Movie> movieToCheckout = movieList.stream().filter(x -> x.getTitle().equalsIgnoreCase(name)).findFirst();
         return movieToCheckout.isPresent() && movieToCheckout.get().checkout();
     }
 }

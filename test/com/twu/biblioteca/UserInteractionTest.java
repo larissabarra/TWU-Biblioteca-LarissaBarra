@@ -245,7 +245,6 @@ public class UserInteractionTest {
                 .thenReturn(7, 9);
 
         userInteraction.execute();
-        userInteraction.printLoggedUsersData();
         verify(display).print("Library number: zzz-zzzz\nName: user1\nEmail: email1\nPhone: xxx");
     }
 
