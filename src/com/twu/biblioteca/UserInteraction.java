@@ -35,7 +35,7 @@ public class UserInteraction {
             display.print(menu.showMenu());
             choice = display.waitForUserIntInput("Choose your option: ");
             switch (choice) {
-                case 1: display.print(bookList.printAvailableBooks());
+                case 1: display.print(bookList.printAvailableMedia());
                     break;
                 case 2: String bookToCheckout = display.waitForUserStringInput("Enter the book title: ");
                     boolean bookCheckoutSuccessful = bookList.checkoutByTitle(bookToCheckout);
@@ -53,10 +53,10 @@ public class UserInteraction {
                         display.print("That is not a valid book to return.");
                     }
                     break;
-                case 4: display.print(movieList.printAvailableMovies());
+                case 4: display.print(movieList.printAvailableMedia());
                     break;
                 case 5: String movieToCheckout = display.waitForUserStringInput("Enter the movie title: ");
-                    boolean movieCheckoutSuccessful = movieList.checkoutByName(movieToCheckout);
+                    boolean movieCheckoutSuccessful = movieList.checkoutByTitle(movieToCheckout);
                     if (movieCheckoutSuccessful) {
                         display.print("Thank you! Enjoy the movie.");
                     } else {

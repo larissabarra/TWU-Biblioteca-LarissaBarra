@@ -1,29 +1,23 @@
 package com.twu.biblioteca.domain;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class BookListTest {
 
     @Test
     public void returnsListOfBooks() throws Exception {
         BookList list = new BookList();
-        assertNotNull(list.getBookList());
+        assertNotNull(list.getMediaList());
     }
 
     @Test
     public void printOnlyAvailableBooks() throws Exception {
         BookList list = new BookList();
-        list.getBookList().get(0).checkout();
+        list.getMediaList().get(0).checkout();
 
-        String printedList = list.printAvailableBooks();
+        String printedList = list.printAvailableMedia();
         assertEquals("Book 2 - author 2 - 1994\n", printedList);
     }
 

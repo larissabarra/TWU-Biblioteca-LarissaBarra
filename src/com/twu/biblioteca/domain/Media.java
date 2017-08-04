@@ -8,6 +8,7 @@ public class Media {
     public Media(String title, int year) {
         this.title = title;
         this.year = year;
+        this.checked = false;
     }
 
     public String getTitle() {

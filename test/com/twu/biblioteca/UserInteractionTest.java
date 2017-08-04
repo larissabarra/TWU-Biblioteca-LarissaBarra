@@ -61,7 +61,7 @@ public class UserInteractionTest {
 
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput("Choose your option: ");
-        verify(bookList).printAvailableBooks();
+        verify(bookList).printAvailableMedia();
     }
 
     @Test
@@ -108,12 +108,12 @@ public class UserInteractionTest {
                 .thenReturn(5, 9);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
-        when(movieList.checkoutByName("xyz"))
+        when(movieList.checkoutByTitle("xyz"))
                 .thenReturn(true);
 
         userInteraction.execute();
         verify(display).waitForUserStringInput("Enter the movie title: ");
-        verify(movieList).checkoutByName("xyz");
+        verify(movieList).checkoutByTitle("xyz");
     }
 
     @Test
@@ -137,7 +137,7 @@ public class UserInteractionTest {
                 .thenReturn(5, 9);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
-        when(movieList.checkoutByName("xyz"))
+        when(movieList.checkoutByTitle("xyz"))
                 .thenReturn(true);
 
         userInteraction.execute();
@@ -165,7 +165,7 @@ public class UserInteractionTest {
                 .thenReturn(5, 9);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
-        when(movieList.checkoutByName("xyz"))
+        when(movieList.checkoutByTitle("xyz"))
                 .thenReturn(false);
 
         userInteraction.execute();
