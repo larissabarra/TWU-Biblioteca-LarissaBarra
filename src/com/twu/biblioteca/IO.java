@@ -22,7 +22,6 @@ public class IO {
     public String waitForUserStringInput(String message) {
         System.out.print(message);
         try {
-            clearBuffer();
             return sc.nextLine();
         } catch (InputMismatchException ex) {
             return "-";

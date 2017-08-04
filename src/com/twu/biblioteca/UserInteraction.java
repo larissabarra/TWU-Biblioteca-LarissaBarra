@@ -2,78 +2,94 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.domain.*;
 
+import java.util.List;
+
 public class UserInteraction {
     private final WelcomeMessage welcomeMessage;
     private final BookList bookList;
     private final MovieList movieList;
     private final UserList userList;
-    private final IO display;
+    private final IO io;
     private final Menu menu;
     private User loggedUser;
 
-    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, MovieList movieList, UserList userList, IO display, Menu menu) {
+    public UserInteraction(WelcomeMessage welcomeMessage, BookList bookList, MovieList movieList, UserList userList, IO io, Menu menu) {
         this.welcomeMessage = welcomeMessage;
         this.bookList = bookList;
         this.movieList = movieList;
         this.userList = userList;
-        this.display = display;
+        this.io = io;
         this.menu = menu;
         loggedUser = null;
     }
 
     public void execute() {
-        display.print(welcomeMessage.returnWelcomeMessage());
-        display.print("Log in before using the system.");
+        io.print(welcomeMessage.returnWelcomeMessage());
+        io.print("Log in before using the system.");
         while (loggedUser == null) {
-            display.clearBuffer();
-            String libNumber = display.waitForUserStringInput("Enter your library number: ");
-            String password = display.waitForUserStringInput("Enter your password: ");
+            io.clearBuffer();
+            String libNumber = io.waitForUserStringInput("Enter your library number: ");
+            String password = io.waitForUserStringInput("Enter your password: ");
             loggedUser = userList.login(libNumber, password);
         }
         int choice = 0;
         while (choice != 9) {
-            display.print(menu.showMenu());
-            choice = display.waitForUserIntInput("Choose your option: ");
+            io.print(menu.showMenu());
+            choice = io.waitForUserIntInput("Choose your option: ");
             switch (choice) {
-                case 1: display.print(bookList.printAvailableMedia());
+                case 1:
+                    printAvailableMedia(bookList);
                     break;
-                case 2: String bookToCheckout = display.waitForUserStringInput("Enter the book title: ");
-                    boolean bookCheckoutSuccessful = bookList.checkoutByTitle(bookToCheckout);
-                    if (bookCheckoutSuccessful) {
-                        display.print("Thank you! Enjoy the book.");
-                    } else {
-                        display.print("That book is not available.");
-                    }
+                case 2:
+                    checkoutMedia("book", bookList);
                     break;
-                case 3: String bookToReturn = display.waitForUserStringInput("Enter the book title: ");
-                    boolean returnSuccessful = bookList.returnByTitle(bookToReturn);
-                    if (returnSuccessful) {
-                        display.print("Thank you for returning the book.");
-                    } else {
-                        display.print("That is not a valid book to return.");
-                    }
+                case 3:
+                    returnBook();
                     break;
-                case 4: display.print(movieList.printAvailableMedia());
+                case 4:
+                    printAvailableMedia(movieList);
                     break;
-                case 5: String movieToCheckout = display.waitForUserStringInput("Enter the movie title: ");
-                    boolean movieCheckoutSuccessful = movieList.checkoutByTitle(movieToCheckout);
-                    if (movieCheckoutSuccessful) {
-                        display.print("Thank you! Enjoy the movie.");
-                    } else {
-                        display.print("That movie is not available.");
-                    }
+                case 5:
+                    checkoutMedia("movie", movieList);
                     break;
-                case 7: printLoggedUsersData();
+                case 7:
+                    printLoggedUsersData();
                     break;
-                case 9: display.print("Bye!");
+                case 9:
+                    io.print("Bye!");
                     break;
-                default: display.print("Select a valid option!");
+                default:
+                    io.print("Select a valid option!");
                     break;
             }
         }
     }
 
+    private void printAvailableMedia(MediaList list) {
+        io.print(list.printAvailableMedia());
+    }
+
+    private void returnBook() {
+        String bookToReturn = io.waitForUserStringInput("Enter the book title: ");
+        boolean returnSuccessful = bookList.returnByTitle(bookToReturn);
+        if (returnSuccessful) {
+            io.print("Thank you for returning the book.");
+        } else {
+            io.print("That is not a valid book to return.");
+        }
+    }
+
+    private void checkoutMedia(String media, MediaList list) {
+        String mediaToCheckout = io.waitForUserStringInput("Enter the " + media + " title: ");
+        boolean mediaCheckoutSuccessful = list.checkoutByTitle(mediaToCheckout);
+        if (mediaCheckoutSuccessful) {
+            io.print("Thank you! Enjoy the " + media + ".");
+        } else {
+            io.print("That " + media + " is not available.");
+        }
+    }
+
     public void printLoggedUsersData() {
-        display.print(loggedUser.toString());
+        io.print(loggedUser.toString());
     }
 }
