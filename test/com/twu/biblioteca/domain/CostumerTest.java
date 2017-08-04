@@ -5,21 +5,20 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class CostumerTest {
+    Costumer costumer = new Costumer("xxx-xxxx", "123", "name","email", "phone");
+
     @Test
     public void CostumerHasName() throws Exception {
-        Costumer costumer = new Costumer("xxx-xxxx", "123", "name","email", "phone");
         assertEquals("name", costumer.getName());
     }
 
     @Test
     public void CostumerHasEmail() throws Exception {
-        Costumer costumer = new Costumer("xxx-xxxx", "123", "name","email", "phone");
         assertEquals("email", costumer.getEmail());
     }
 
     @Test
     public void CostumerHasPhone() throws Exception {
-        Costumer costumer = new Costumer("xxx-xxxx", "123", "name","email", "phone");
         assertEquals("phone", costumer.getPhone());
     }
 }

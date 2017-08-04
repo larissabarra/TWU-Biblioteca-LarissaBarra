@@ -32,8 +32,7 @@ public class UserInteractionTest {
         simulateLogin();
         when(welcomeMessage.returnWelcomeMessage())
                 .thenReturn("Ei");
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(9);
+        simulateExitOption();
 
         userInteraction.execute();
         verify(welcomeMessage).returnWelcomeMessage();
@@ -45,8 +44,7 @@ public class UserInteractionTest {
         simulateLogin();
         when(menu.showMenu())
                 .thenReturn("1 - List books");
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(9);
+        simulateExitOption();
 
         userInteraction.execute();
         verify(menu).showMenu();
@@ -56,8 +54,7 @@ public class UserInteractionTest {
     @Test
     public void chooseMenuOption() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(1, 9);
+        simulateMenuOption(1);
 
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput("Choose your option: ");
@@ -67,8 +64,7 @@ public class UserInteractionTest {
     @Test
     public void chooseInvalidMenuOption() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(10, 9);
+        simulateMenuOption(10);
 
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput("Choose your option: ");
@@ -76,10 +72,9 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void showMenuWhileUserDoesntQuit() throws Exception {
+    public void showMenuWhileUserDoesNotQuit() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(10,9);
+        simulateMenuOption(10);
 
         userInteraction.execute();
         verify(display, times(2)).waitForUserIntInput("Choose your option: ");
@@ -89,8 +84,7 @@ public class UserInteractionTest {
     @Test
     public void chooseBookCheckoutMenuOption() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(2, 9);
+        simulateMenuOption(2);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
@@ -104,8 +98,7 @@ public class UserInteractionTest {
     @Test
     public void chooseMovieCheckoutMenuOption() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(5, 9);
+        simulateMenuOption(5);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByTitle("xyz"))
@@ -119,8 +112,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForSuccessfulBookCheckout() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(2, 9);
+        simulateMenuOption(2);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
@@ -133,8 +125,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForSuccessfulMovieCheckout() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(5, 9);
+        simulateMenuOption(5);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByTitle("xyz"))
@@ -147,8 +138,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForUnsuccessfulBookCheckout() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(2, 9);
+        simulateMenuOption(2);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.checkoutByTitle("xyz"))
@@ -161,8 +151,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForUnsuccessfulMovieCheckout() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(5, 9);
+        simulateMenuOption(5);
         when(display.waitForUserStringInput("Enter the movie title: "))
                 .thenReturn("xyz");
         when(movieList.checkoutByTitle("xyz"))
@@ -175,8 +164,7 @@ public class UserInteractionTest {
     @Test
     public void chooseBookReturnMenuOption() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(3, 9);
+        simulateMenuOption(3);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
@@ -190,8 +178,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForSuccessfulBookReturn() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(3, 9);
+        simulateMenuOption(3);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
@@ -204,8 +191,7 @@ public class UserInteractionTest {
     @Test
     public void showMessageForUnsuccessfulBookReturn() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(3, 9);
+        simulateMenuOption(3);
         when(display.waitForUserStringInput("Enter the book title: "))
                 .thenReturn("xyz");
         when(bookList.returnByTitle("xyz"))
@@ -216,21 +202,9 @@ public class UserInteractionTest {
     }
 
     @Test
-    public void chooseLoginOption() throws Exception {
-        simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(8, 9);
-
-        userInteraction.execute();
-        verify(display).waitForUserStringInput("Enter your library number: ");
-        verify(display).waitForUserStringInput("Enter your password: ");
-    }
-
-    @Test
     public void demandLoginBeforeUsingSystem() throws Exception {
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(9);
         simulateLogin();
+        simulateExitOption();
 
         userInteraction.execute();
         verify(display).waitForUserStringInput("Enter your library number: ");
@@ -241,8 +215,7 @@ public class UserInteractionTest {
     @Test
     public void printUserInformation() throws Exception {
         simulateLogin();
-        when(display.waitForUserIntInput("Choose your option: "))
-                .thenReturn(7, 9);
+        simulateMenuOption(7);
 
         userInteraction.execute();
         verify(display).print("Library number: zzz-zzzz\nName: user1\nEmail: email1\nPhone: xxx");
@@ -255,5 +228,14 @@ public class UserInteractionTest {
                 .thenReturn("qwe");
         when(userList.login("zzz-zzzz", "qwe"))
                 .thenReturn(new Costumer("zzz-zzzz", "qwe", "user1", "email1", "xxx"));
+    }
+    private void simulateMenuOption(int option) {
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(option, 9);
+    }
+
+    private void simulateExitOption() {
+        when(display.waitForUserIntInput("Choose your option: "))
+                .thenReturn(9);
     }
 }
