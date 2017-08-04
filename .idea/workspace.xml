@@ -4,6 +4,7 @@
     <list default="true" id="e005d3bf-f594-498e-a94a-96191bb3606c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/IO.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/IO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,15 +16,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UserInteractionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="428">
+              <caret line="217" column="73" lean-forward="false" selection-start-line="217" selection-start-column="73" selection-end-line="217" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UserInteraction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="548">
+              <caret line="82" column="99" lean-forward="false" selection-start-line="82" selection-start-column="99" selection-end-line="82" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2252#2253#0" expanded="true" />
-                <element signature="e#2304#2305#0" expanded="true" />
+                <element signature="e#2264#2265#0" expanded="true" />
+                <element signature="e#2316#2317#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -32,8 +45,8 @@
       <file leaf-file-name="IO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/IO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            <state relative-caret-position="358">
+              <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,8 +118,8 @@
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/domain/MovieTest.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/domain/UserListTest.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/domain/WelcomeMessageTest.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/IO.java" />
       </list>
     </option>
@@ -464,14 +477,11 @@
       <workItem from="1501527814342" duration="13209000" />
       <workItem from="1501693980708" duration="6122000" />
       <workItem from="1501707765833" duration="2438000" />
-      <workItem from="1501710345671" duration="18847000" />
+      <workItem from="1501710345671" duration="19280000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserInteractionTest_printUserInformation - 2017.08.03 at 18h 12m 46s.xml">
-      <configuration name="UserInteractionTest.printUserInformation" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="com_twu_biblioteca_in_biblioteca - 2017.08.03 at 18h 12m 54s.xml">
       <configuration name="com.twu.biblioteca in biblioteca" configurationId="JUnit" />
     </history-entry>
@@ -499,9 +509,12 @@
     <history-entry file="com_twu_biblioteca_in_biblioteca - 2017.08.04 at 10h 48m 40s.xml">
       <configuration name="com.twu.biblioteca in biblioteca" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="com_twu_biblioteca_in_biblioteca - 2017.08.04 at 10h 58m 15s.xml">
+      <configuration name="com.twu.biblioteca in biblioteca" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40616000" />
+    <option name="totallyTimeSpent" value="41049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -996,32 +1009,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2327">
-          <caret line="56" column="29" lean-forward="false" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
+        <state relative-caret-position="548">
+          <caret line="82" column="99" lean-forward="false" selection-start-line="82" selection-start-column="99" selection-end-line="82" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2264#2265#0" expanded="true" />
+            <element signature="e#2316#2317#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInteraction.java">
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInteractionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="428">
+          <caret line="217" column="73" lean-forward="false" selection-start-line="217" selection-start-column="73" selection-end-line="217" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2252#2253#0" expanded="true" />
-            <element signature="e#2304#2305#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/IO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="358">
+          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

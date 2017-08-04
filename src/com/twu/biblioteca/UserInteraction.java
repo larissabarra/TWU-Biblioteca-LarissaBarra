@@ -28,8 +28,8 @@ public class UserInteraction {
         io.print("Log in before using the system.");
         while (loggedUser == null) {
             io.clearBuffer();
-            String libNumber = io.waitForUserStringInput("Enter your library number: ");
-            String password = io.waitForUserStringInput("Enter your password: ");
+            String libNumber = io.waitForUserStringInput("Enter your library number: ", true);
+            String password = io.waitForUserStringInput("Enter your password: ", true);
             loggedUser = userList.login(libNumber, password);
         }
         int choice = 0;
@@ -70,7 +70,7 @@ public class UserInteraction {
     }
 
     private void returnBook() {
-        String bookToReturn = io.waitForUserStringInput("Enter the book title: ");
+        String bookToReturn = io.waitForUserStringInput("Enter the book title: ", false);
         boolean returnSuccessful = bookList.returnByTitle(bookToReturn);
         if (returnSuccessful) {
             io.print("Thank you for returning the book.");
@@ -80,7 +80,7 @@ public class UserInteraction {
     }
 
     private void checkoutMedia(String media, MediaList list) {
-        String mediaToCheckout = io.waitForUserStringInput("Enter the " + media + " title: ");
+        String mediaToCheckout = io.waitForUserStringInput("Enter the " + media + " title: ", false);
         boolean mediaCheckoutSuccessful = list.checkoutByTitle(mediaToCheckout);
         if (mediaCheckoutSuccessful) {
             io.print("Thank you! Enjoy the " + media + ".");

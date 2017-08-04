@@ -19,12 +19,17 @@ public class IO {
         }
     }
 
-    public String waitForUserStringInput(String message) {
+    public String waitForUserStringInput(String message, boolean shouldResetBuffer) {
         System.out.print(message);
         try {
+            if (shouldResetBuffer) {
+                sc.reset();
+            } else {
+                sc.nextLine();
+            }
             return sc.nextLine();
         } catch (InputMismatchException ex) {
-            return "-";
+            return "";
         }
     }
 
