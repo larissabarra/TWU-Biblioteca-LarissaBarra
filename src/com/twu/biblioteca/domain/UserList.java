@@ -9,7 +9,7 @@ public class UserList {
 
     public UserList() {
         this.userList = Arrays.asList(new User("xxx-xxxx", "123"),
-                new Costumer("zzz-zzzz", "qwe", "name","email", "phone"));
+                new Customer("zzz-zzzz", "qwe", "name","email", "phone"));
     }
 
     public User login(String libraryNumber, String password) {

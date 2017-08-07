@@ -1,11 +1,11 @@
 package com.twu.biblioteca.domain;
 
-public class Costumer extends User {
+public class Customer extends User {
     private final String name;
     private final String email;
     private final String phone;
 
-    public Costumer(String libraryNumber, String password, String name, String email, String phone) {
+    public Customer(String libraryNumber, String password, String name, String email, String phone) {
         super(libraryNumber, password);
         this.name = name;
         this.email = email;

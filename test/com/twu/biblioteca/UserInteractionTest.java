@@ -218,7 +218,7 @@ public class UserInteractionTest {
         when(display.waitForUserStringInput("Enter your password: ", true))
                 .thenReturn("qwe");
         when(userList.login("zzz-zzzz", "qwe"))
-                .thenReturn(new Costumer("zzz-zzzz", "qwe", "user1", "email1", "xxx"));
+                .thenReturn(new Customer("zzz-zzzz", "qwe", "user1", "email1", "xxx"));
     }
     private void simulateMenuOption(int option) {
         when(display.waitForUserIntInput("Choose your option: "))
